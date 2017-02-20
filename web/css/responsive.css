@@ -1,0 +1,498 @@
+/* Medium Layout: 1600px. */
+
+@media only screen and (min-width: 1601px) {}
+
+
+/* Medium Layout: 1600px. */
+
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {}
+
+
+/* Medium Layout: 1400px. */
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {}
+
+
+/* Medium Layout: 1200px. */
+
+@media only screen and (min-width: 991px) and (max-width: 1199px) {
+    /* ==============================================================
+                       Blog Page v2 Start
+    ================================================================= */
+    .blog-page2 .blog-area-right {
+        padding-right: 80px;
+    }
+    .single-blog-single-post-details {
+        width: 72%;
+    }
+    .single-blog-single-post-details > h4 {
+        font-size: 15px;
+        line-height: 20px;
+    }
+    /* ==============================================================
+                       Blog Page v2 End
+    ================================================================= */
+    /* ==============================================================
+                       Blog Page v2 Start
+    ================================================================= */
+    .blog-page3 .single-blog-details > h3 {
+        font-size: 21px;
+        line-height: 28px;
+    }
+    .coments-info > p {
+        font-size: 13px;
+    }
+    /* ==============================================================
+                       Blog Page v2 End
+    ================================================================= */
+    /* ==============================================================
+                       Blog Page v1 Start
+    ================================================================= */
+    .blog-area-right {
+        padding-left: 40px;
+    }
+    .tag-area-tags li {
+        padding: 4px 10px;
+    }
+    .tag-area-social-icons > h4 {
+        margin-right: 3px;
+    }
+    .tag-area-social-icons li a {
+        width: 22px;
+    }
+    /* ==============================================================
+                       Blog Page v1 End
+    ================================================================= */
+    /* ==============================================================
+                       about Page Start
+    ================================================================= */
+    .gallery-page-v1 .single-light-project:hover::after {
+        right: 0;
+        top: 0;
+    }
+    .gallery-page-v1 .single-light-project::before {
+        left: 0;
+    }
+    /* ==============================================================
+                       about Page Start
+    ================================================================= */
+    /* ==============================================================
+                       about Page Start
+    ================================================================= */
+    .about-page .light-section-title {
+        padding-top: 100px;
+    }
+    .about-page .light-section-title {
+        padding-top: 0;
+    }
+    header.site-header {
+        padding-bottom: 0;
+    }
+    .site-header.site-header-home {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+    .internal-content-area {
+        padding-top: 100px;
+    }
+    /* ==============================================================
+                       about Page Start
+    ================================================================= */
+    /* ==============================================================
+                        Home Page v2 End
+    ================================================================= */
+    .single-light-project-wrap.col-md-8 .single-light-project::before {
+        bottom: 8px;
+        left: 13px;
+    }
+    .single-light-project::before {
+        left: 5px;
+    }
+    .single-light-project-wrap.col-md-8 .single-light-project::after {
+        right: 10px;
+        top: 8px;
+    }
+    /* ==============================================================
+                        Home Page v2 End
+    ================================================================= */
+}
+
+
+/* Tablet Layout: 768px. */
+
+@media only screen and (min-width: 768px) and (max-width: 990px) {
+    /* ============================================================================
+						Blog Details page Start
+    =============================================================================== */
+    .blog-area-left {
+        padding-right: 0;
+    }
+    .blog-area-right {
+        padding-left: 0;
+    }
+    .single-blog-single-post-details {
+        width: 73%;
+    }
+    .tag-area-social-icons {
+        padding-left: 15px;
+    }
+    .tag-area-tags li {
+        padding: 4px 18px;
+    }
+    .comment-single-input textarea {
+        margin-bottom: 15px;
+    }
+    /* ============================================================================
+						Blog Details page End
+    =============================================================================== */
+    /* ============================================================================
+						Blog page v2 Start
+    =============================================================================== */
+    .blog-page2 .blog-area-right {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* ============================================================================
+						Blog page v2 End
+    =============================================================================== */
+    /* ============================================================================
+						Blog page v1 Start
+    =============================================================================== */
+    .single-blog-single-post-details > h4 {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    /* ============================================================================
+						Blog page v1 End
+    =============================================================================== */
+    /* ============================================================================
+						portfolio-details page Start
+    =============================================================================== */
+    .portfolio-details-area .col-sm-4:nth-child(2) .portfolio-single-details img:nth-child(1) {
+        margin-bottom: 24px;
+    }
+    .portfolio-details-text-right {
+        padding-left: 0;
+    }
+    /* ============================================================================
+						portfolio-details Page End
+    =============================================================================== */
+    /* ============================================================================
+						about page Start
+    =============================================================================== */
+    .single-about-right {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+    .about-page .site-header {
+        padding-bottom: 0;
+    }
+    /* ==============================================================
+						about End
+    ================================================================= */
+    /* ==============================================================
+                        Home Page v2 End
+    ================================================================= */
+    .single-light-project-wrap.col-md-8 .single-light-project::before {
+        bottom: 8px;
+        left: 6px;
+    }
+    /* ==============================================================
+                        Home Page v2 End
+    ================================================================= */
+    /* ================================================================
+						Home page Start
+    =================================================================== */
+    /* Hero-area Start */
+    .light-section-title h2 {
+        font-size: 44px;
+    }
+    /* Hero-area End */
+    /* =================================================================
+						Home page End
+    ==================================================================== */
+}
+
+
+/* Mobile Layout: 320px. */
+
+@media only screen and (max-width: 767px) {
+    /* =====================================================
+					portfolio-Details Page Start
+    ========================================================*/
+    .portfolio-single-details {
+        margin-bottom: 30px;
+    }
+    .portfolio-details-text-right {
+        padding-left: 0;
+        padding-top: 40px;
+    }
+    .site-header.site-header-home h3 {
+        text-align: left;
+    }
+    /* =====================================================
+					portfolio-Details Page End
+    ========================================================*/
+    /* =====================================================
+					portfolio v1 Page Start
+    ========================================================*/
+    .single-light-project::before {
+        bottom: 0;
+        left: 0px;
+    }
+    .single-light-project:hover::after {
+        right: 0;
+        top: 0;
+    }
+    /* =====================================================
+					portfolio v1 Page End
+    ========================================================*/
+    /* =====================================================
+					Blog-details Page Start
+    ========================================================*/
+    .blog-area-left {
+        padding-right: 0;
+    }
+    .coments-info > p span {
+        font-size: 12px;
+        margin-right: 10px;
+    }
+    .portfolio-details-text-left blockquote {
+        padding-left: 20px;
+    }
+    .tag-area-tags li {
+        margin-bottom: 15px;
+        padding: 4px 20px;
+        text-align: center;
+        width: 170px;
+    }
+    .tag-area-social-icons {
+        margin-left: 15px;
+        margin-top: 30px;
+    }
+    .blog-area-right {
+        padding-left: 0;
+        padding-top: 60px;
+    }
+    .comment-input-area > h2 {
+        padding-bottom: 30px;
+    }
+    .single-blog-details > h3 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .newslatter-input input {
+        width: 290px;
+    }
+    .newslatter-input input[type="submit"] {
+        width: 130px;
+        margin-top: 30px;
+    }
+    .newsletter-content > p {
+        color: #ffffff;
+        font-size: 17px;
+        font-weight: 300;
+        padding-bottom: 15px;
+    }
+    /* =====================================================
+					Blog-details  Page End
+    ========================================================*/
+    /* =====================================================
+					Blog- Page2 Start
+    ========================================================*/
+    .blog-page2 .blog-area-right {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .blog-page2 .blog-area-left {
+        padding-left: 0;
+    }
+    /* =====================================================
+					Blog-Page2 End
+    ========================================================*/
+    /* =====================================================
+					About Page Start
+    ========================================================*/
+    .single-light-project-wrap {
+        left: 0 !important;
+        width: 100%;
+    }
+    .home-page3 .light-section-title {
+        max-width: 100%;
+    }
+    .bg-text {
+        font-size: 53px;
+        top: 5px;
+    }
+    /* =====================================================
+					Responsive Menu Start
+    ========================================================*/
+    .slicknav_menu {
+        display: block;
+    }
+    .menu_col {
+        position: relative;
+    }
+    .slicknav_menu {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+        left: auto;
+        min-width: 280px;
+        position: absolute;
+        right: 15px;
+        top: 0;
+        width: 100%;
+    }
+    .slicknav_nav {
+        background: #222222 none repeat scroll 0 0;
+        transition: all 0.6s ease 0s;
+    }
+    .slicknav_btn {
+        margin: 10px 0;
+    }
+    /* =====================================================
+					Responsive Menu End
+    ========================================================*/
+    .mainmenu {
+        display: none;
+    }
+    .adcc {
+        position: relative;
+        z-index: 9999;
+    }
+    .logo {
+        padding: 0;
+        text-align: center;
+    }
+    .menu_col {
+        position: relative;
+        z-index: 99;
+    }
+    .site-header.site-header-home {
+        padding: 0;
+    }
+    .light-section-title h2 {
+        font-size: 30px;
+    }
+    .home-page1 .light-section-title {
+        padding-bottom: 100px;
+        padding-top: 92px;
+    }
+    .light-project-categories li {
+        margin: 5px;
+    }
+    .site-footer .col-md-12 > p {
+        font-size: 11px;
+    }
+    /* =====================================================================
+	        Dropdown Menu Starts when use dropdown for mobile Device
+    ===================================================================== */
+}
+
+
+/* Wide Mobile Layout: 480px. */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    /* =============================================================================== 
+							blog Details Page v3 Start
+    ================================================================================== */
+    .blog-page3 .single-blog-details > h3 {
+        line-height: 42px;
+    }
+    .blog-details-page .blog-area-left {
+        padding-bottom: 60px;
+    }
+    .blog-details-page .tag-area-tags li {
+        padding: 4px 20px;
+        width: auto;
+    }
+    .tag-area-social-icons {
+        margin-left: 15px;
+        margin-top: 20px;
+    }
+    /* =============================================================================== 
+							blog Details Page v3 Start
+    ================================================================================== */
+    /* =============================================================================== 
+							blog Page v2 Start
+    ================================================================================== */
+    .blog-page .single-blog-details > h3 {
+        font-size: 24px;
+    }
+    .single-blog-details > h3 {
+        font-size: 32px;
+    }
+    .single-blog-img > img {
+        transition: all 1s ease 0s;
+        width: 100%;
+    }
+    .blog-page2 .blog-area-right {
+        padding-right: 0;
+    }
+    .blog-page2 .blog-area-left {
+        padding-left: 0;
+    }
+    /* =============================================================================== 
+							blog Page v2 End
+    ================================================================================== */
+    /* =============================================================================== 
+							blog Page v1 Start
+    ================================================================================== */
+    .blog-area-left {
+        padding-right: 0;
+    }
+    .blog-area-right {
+        padding-left: 0;
+    }
+    /* =============================================================================== 
+							blog Page v1 End
+    ================================================================================== */
+    /* =============================================================================== 
+							Portfolio Page v2 Start
+    ================================================================================== */
+    .portfolio-single-details {
+        margin-bottom: 60px;
+    }
+    .portfolio-single-details img {
+        width: 100%;
+    }
+    .portfolio-details-text-right {
+        padding-left: 0;
+        padding-top: 60px;
+    }
+    /* =============================================================================== 
+							Portfolio Page v2 End
+    ================================================================================== */
+    /* =============================================================================== 
+							Portfolio Page v2 Start
+    ================================================================================== */
+    .newslatter-input input {
+        width: 290px;
+    }
+    /* =============================================================================== 
+							Portfolio Page v2 End
+    ================================================================================== */
+    /* =============================================================================== 
+							Home-Page Start
+    ================================================================================== */
+    /* light-section-title-area Start */
+    .light-section-title h2 {
+        font-size: 45px;
+    }
+    /* light-section-title-area End */
+    /* footer-area Start */
+    .site-footer .col-md-12 > p {
+        font-size: 16px;
+    }
+    /* footer-area End */
+    /* single-light-project-area Start */
+    .single-light-project-wrap {
+        width: 100% !important;
+    }
+    .light-project-inner-tablecell h3 {
+        font-size: 16px;
+    }
+    /* single-light-project-area End */
+    /* =============================================================================== 
+							Home-Page End
+================================================================================== */
+}

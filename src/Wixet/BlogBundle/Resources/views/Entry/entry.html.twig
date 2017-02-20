@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-md-12">
+        <br>
+    </div>
+</div>
+<div class="blog-area">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="blog-details-img">
+                <img src="{{ entry.image }}" alt="{{ entry.title }}">
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="blog-area-left">
+                <div class="single-blog">
+                    <div class="single-blog-details">
+                        <h4>{{ entry.createdAt | ldate }}</h4>
+                        <h3>{{ entry.title }}</h3>
+                        <div class="coments-info">
+                            {% set count = thread.numComments %}
+                            <p><span><i class="fa fa-user" aria-hidden="true"></i>by Admin</span><span><i class="fa fa-comments" aria-hidden="true"></i>{% transchoice count with {'%count%': count} from "FOSCommentBundle" %}fos_comment_thread_comment_count{% endtranschoice %}</span>{% if entry.category.name %}<span><i class="fa {{ entry.category.icon }}" aria-hidden="true"></i>{{ entry.category.name }}</span>{% endif %} </p>
+                        </div>
+                        <div class="portfolio-details-text-left">
+                            {{ entry.body | raw }}
+                        </div>
+                    </div>
+                </div>
+                <div class="tag-area">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="tag-area-tags">
+                                <h4>Tags:</h4>
+                                <ul>
+                                    {% for tag in entry.tags %}
+                                        <li>{{ tag.name }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="tag-area-social-icons">
+                                <h4>Share:</h4>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-comment-area">
+                    <div id="fos_comment_thread" data-thread="{{ thread.id }}">
+
+                        {% include 'FOSCommentBundle:Thread:comments.html.twig' with {
+                        'comments': comments,
+                        'thread': thread
+                        } %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="blog-area-right">
+                <div class="search-area widget_search" id="search">
+                    <!-- blog-area-right search-area  Start  -->
+                    <form method="get" id="searchform" action="http://blu.elated-themes.com/">
+                        <div class="search-input">
+                            <input value="" placeholder="Type your keyword" name="search" id="s" type="text">
+                            <button type="submit" id="searchsubmit">
+                                <span class="search-icon"><i class="fa fa-search"></i></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                {{ sonata_block_render({ 'type': 'wixet.block.service.categories' }) }}
+
+                {{ sonata_block_render({ 'type': 'wixet.block.service.tags' }) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

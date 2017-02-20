@@ -1,0 +1,10 @@
+<div class="single-blog">
+    <h2>Tags</h2>
+    <div class="archive-list">
+        <ul>
+            {% for tag in tags %}
+                <li><a href="#">{{ tag.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

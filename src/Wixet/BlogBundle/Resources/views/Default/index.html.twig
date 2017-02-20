@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+            <div class="row">
+                <div class="col-md-12">
+                            <br>
+                </div>
+            </div>
+            <div class="blog-area">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="blog-area-left">
+                            {% for entry in entries %}
+                                <div class="single-blog">
+                                    <div class="single-blog-img">
+                                        <a href="{{ url('wixet_blog_entry_entry', {'category': entry.entry.category.name, 'slug': entry.entry.slug }) }}"><img src="{{ entry.entry.image }}" alt="{{ entry.entry.title }}"></a>
+                                    </div>
+                                    <div class="single-blog-details">
+                                        <h4>{{ entry.entry.createdAt | ldate }}</h4>
+                                        <h3>{{ entry.entry.title }}</h3>
+                                        <div class="coments-info">
+                                            {% set count = entry.numComments %}
+                                            <p><span><i class="fa fa-user" aria-hidden="true"></i>by {{ entry.entry.author.name }}</span><span><i class="fa fa-comments" aria-hidden="true"></i>{% transchoice count with {'%count%': count} from "FOSCommentBundle" %}fos_comment_thread_comment_count{% endtranschoice %}</span>{% if entry.entry.category.name %}<span><i class="fa {{ entry.entry.category.icon }}" aria-hidden="true"></i>{{ entry.entry.category.name }}</span>{% endif %} </p>
+                                        </div>
+                                        <p>{{ entry.entry.bodyPreview | raw }}</p>
+                                        <a href="{{ url('wixet_blog_entry_entry', {'category': entry.entry.category.name, 'slug': entry.entry.slug }) }}" class="blog-btn">Read More</a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="blog-area-right">
+                            <div class="search-area widget_search" id="search">
+                                <!-- blog-area-right search-area  Start  -->
+                                <form method="get" id="searchform" action="http://blu.elated-themes.com/">
+                                    <div class="search-input">
+                                        <input value="" placeholder="Type your keyword" name="search" id="s" type="text">
+                                        <button type="submit" id="searchsubmit">
+                                            <span class="search-icon"><i class="fa fa-search"></i></span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            {{ sonata_block_render({ 'type': 'wixet.block.service.categories' }) }}
+
+                            {{ sonata_block_render({ 'type': 'wixet.block.service.tags' }) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

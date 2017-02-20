@@ -1,0 +1,38 @@
+services:
+  wixet.block.service.categories:
+        class: Wixet\BlogBundle\Block\CategoriesBlockService
+        arguments:
+            - wixet.block.service.categories
+            - "@templating"
+            - "@doctrine.orm.entity_manager"
+            - "@request_stack"
+        tags:
+            - { name: sonata.block }
+
+  wixet.block.service.tags:
+        class: Wixet\BlogBundle\Block\TagsBlockService
+        arguments:
+            - wixet.block.service.tags
+            - "@templating"
+            - "@doctrine.orm.entity_manager"
+            - "@request_stack"
+        tags:
+            - { name: sonata.block }
+
+  wixet.blog_entry:
+      class: Wixet\BlogBundle\Service\BlogEntryService
+      arguments:
+          - "@request_stack"
+          - "@doctrine.orm.entity_manager"
+
+  twig.extension.intl:
+      class: Twig_Extensions_Extension_Intl
+      tags:
+          - { name: twig.extension }
+  wixet.twig_extension:
+      class: Wixet\BlogBundle\Twig\BlogExtension
+      public: false
+      calls:
+          - [setRequest, ['@request_stack']]
+      tags:
+          - { name: twig.extension }
