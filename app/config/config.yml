@@ -124,6 +124,9 @@ fos_comment:
         model:
             comment: Wixet\BlogBundle\Entity\Comment
             thread: Wixet\BlogBundle\Entity\CommentThread
+    form:
+        comment:
+            type: Wixet\BlogBundle\Form\CommentType
 
 
 easy_admin:
@@ -207,3 +210,7 @@ fm_elfinder:
                         upload_max_size: 2M # also file upload sizes restricted in php.ini
                         #attributes: example of setting attributes permission
                         #    - { pattern: '/(.*?)/', read: true, write: false, locked: true }
+
+wixet_recaptcha:
+     site_key: "%recaptcha_site_key%"
+     secret: "%recaptcha_secret%"

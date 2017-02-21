@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "aab38fb412e11dd2062e1d2779a6d259",
+    "content-hash": "bda58cf96994ada34a063199ea8dcf5c",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2629,6 +2629,55 @@
                 "minification"
             ],
             "time": "2016-11-11T18:43:20+00:00"
+        },
+        {
+            "name": "maxpowel/wixet-recaptcha-bundle",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maxpowel/WixetRecaptchaBundle.git",
+                "reference": "50aa521de6abd134859052c194aaf853cb40b47e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maxpowel/WixetRecaptchaBundle/zipball/50aa521de6abd134859052c194aaf853cb40b47e",
+                "reference": "50aa521de6abd134859052c194aaf853cb40b47e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|^7.0",
+                "symfony/symfony": ">=2.3"
+            },
+            "require-dev": {
+                "php": "^5.5.9|^7.0",
+                "symfony/symfony": "3.2.*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Wixet\\RecaptchaBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alvaro Garcia",
+                    "email": "maxpowel@gmail.com"
+                }
+            ],
+            "description": "This Bundle provides support for google recaptcha into symfony forms",
+            "keywords": [
+                "form",
+                "recaptcha",
+                "validation"
+            ],
+            "time": "2017-02-17T09:09:01+00:00"
         },
         {
             "name": "monolog/monolog",

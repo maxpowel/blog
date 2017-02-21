@@ -20,3 +20,6 @@ parameters:
 
     mailer_address: "yo@alvarogarciagomez.es"
     mailer_name: "Álvaro García Gómez"
+
+    recaptcha_site_key: "Change me"
+    recaptcha_secret: "Me too"

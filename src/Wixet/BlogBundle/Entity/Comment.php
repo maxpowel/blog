@@ -26,4 +26,6 @@ class Comment extends BaseComment
      * @ORM\ManyToOne(targetEntity="Wixet\BlogBundle\Entity\CommentThread")
      */
     protected $thread;
+
+    public $recaptcha;
 }
