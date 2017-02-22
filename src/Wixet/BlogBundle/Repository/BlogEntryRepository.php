@@ -11,17 +11,45 @@ namespace Wixet\BlogBundle\Repository;
 class BlogEntryRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    public function findMostRecent($locale, $total = null){
-        $query = $this->recentQuery($locale);
+    public function findMostRecent($locale, $category=null, $tag=null, $total=null){
+        $query = $this->findMostRecentQuery($locale, $category, $tag);
         if($total != null) {
-            return $query->setMaxResults($total);
+            $query->setMaxResults($total);
         }
         return $query->getResult();
     }
 
-    public function recentQuery($locale) {
-        return $this->getEntityManager()->createQuery(
-            "SELECT e FROM WixetBlogBundle:BlogEntry e JOIN e.locale l WHERE e.public = true AND l.locale LIKE :locale ORDER BY e.createdAt DESC"
-        )->setParameter("locale", $locale."%");
+    // This method will be used by the paginator
+    public function findMostRecentQuery($locale, $category=null, $tag=null){
+        // Generic query
+        $qb = $this->getEntityManager()->createQueryBuilder()
+            ->select("e")
+            ->from("WixetBlogBundle:BlogEntry", "e")
+            ->join("e.locale", "l")
+            ->where("e.public = true")
+            ->andWhere("l.locale LIKE :locale")
+            ->orderBy("e.createdAt", "DESC")
+            ->setParameter("locale", $locale."%")
+        ;
+
+        // Filters
+        if($category != null) {
+            $qb
+                ->join("e.category", "c")
+                ->andWhere("c = :category")
+                ->setParameter("category", $category)
+            ;
+        }
+
+        if($tag != null) {
+            $qb
+                ->join("e.tags", "t")
+                ->andWhere("t = :tag")
+                ->setParameter("tag", $tag)
+            ;
+        }
+
+        return $qb->getQuery();
     }
+
 }

@@ -36,3 +36,10 @@ services:
           - [setRequest, ['@request_stack']]
       tags:
           - { name: twig.extension }
+
+  wixet.entry.paginator:
+          class: Wixet\BlogBundle\Paginator\PaginateBlogEntrySubscriber
+          calls:
+              - [setThreadManager, ['@fos_comment.manager.thread']]
+          tags:
+              - { name: knp_paginator.subscriber }

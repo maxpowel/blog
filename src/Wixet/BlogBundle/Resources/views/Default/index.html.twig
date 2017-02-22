@@ -11,20 +11,20 @@
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="blog-area-left">
-                            {% for entry in entries %}
+                            {% for entry in blogEntryPagination.items %}
                                 <div class="single-blog">
                                     <div class="single-blog-img">
-                                        <a href="{{ url('wixet_blog_entry_entry', {'category': entry.entry.category.name, 'slug': entry.entry.slug }) }}"><img src="{{ entry.entry.image }}" alt="{{ entry.entry.title }}"></a>
+                                        <a href="{{ url('wixet_blog_entry_entry', {'category': entry.category.name, 'slug': entry.slug }) }}"><img src="{{ entry.image }}" alt="{{ entry.title }}"></a>
                                     </div>
                                     <div class="single-blog-details">
-                                        <h4>{{ entry.entry.createdAt | ldate }}</h4>
-                                        <h3>{{ entry.entry.title }}</h3>
+                                        <h4>{{ entry.createdAt | ldate }}</h4>
+                                        <h3>{{ entry.title }}</h3>
                                         <div class="coments-info">
                                             {% set count = entry.numComments %}
-                                            <p><span><i class="fa fa-user" aria-hidden="true"></i>by {{ entry.entry.author.name }}</span><span><i class="fa fa-comments" aria-hidden="true"></i>{% transchoice count with {'%count%': count} from "FOSCommentBundle" %}fos_comment_thread_comment_count{% endtranschoice %}</span>{% if entry.entry.category.name %}<span><i class="fa {{ entry.entry.category.icon }}" aria-hidden="true"></i>{{ entry.entry.category.name }}</span>{% endif %} </p>
+                                            <p><span><i class="fa fa-user" aria-hidden="true"></i>by {{ entry.author.name }}</span><span><i class="fa fa-comments" aria-hidden="true"></i>{% transchoice count with {'%count%': count} from "FOSCommentBundle" %}fos_comment_thread_comment_count{% endtranschoice %}</span>{% if entry.category.name %}<span><i class="fa {{ entry.category.icon }}" aria-hidden="true"></i>{{ entry.category.name }}</span>{% endif %} </p>
                                         </div>
-                                        <p>{{ entry.entry.bodyPreview | raw }}</p>
-                                        <a href="{{ url('wixet_blog_entry_entry', {'category': entry.entry.category.name, 'slug': entry.entry.slug }) }}" class="blog-btn">Read More</a>
+                                        <p>{{ entry.bodyPreview | raw }}</p>
+                                        <a href="{{ url('wixet_blog_entry_entry', {'category': entry.category.name, 'slug': entry.slug }) }}" class="blog-btn">Read More</a>
                                     </div>
                                 </div>
                             {% endfor %}

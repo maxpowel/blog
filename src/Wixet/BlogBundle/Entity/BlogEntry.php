@@ -5,6 +5,7 @@ namespace Wixet\BlogBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Wixet\BlogBundle\Paginator\CommentableEntityInterface;
 
 
 /**
@@ -13,7 +14,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Table(name="blog_entry")
  * @ORM\Entity(repositoryClass="Wixet\BlogBundle\Repository\BlogEntryRepository")
  */
-class BlogEntry
+class BlogEntry implements CommentableEntityInterface
 {
     public function __construct()
     {
@@ -287,6 +288,16 @@ class BlogEntry
         $this->public = $public;
     }
 
+    private $numComments;
+    public function setNumComments($num)
+    {
+        $this->numComments = $num;
+    }
+
+    public function getNumComments()
+    {
+        return $this->numComments;
+    }
 
 
 }
