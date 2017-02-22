@@ -36,6 +36,13 @@ class Tag
     private $locale;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", unique=true)
+     */
+    private $slug;
+    
+    /**
      * @return int
      */
     public function getId()
@@ -86,6 +93,22 @@ class Tag
     public function setLocale($locale)
     {
         $this->locale = $locale;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
 }

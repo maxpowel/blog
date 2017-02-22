@@ -32,6 +32,13 @@ class Category
     /**
      * @var string
      *
+     * @ORM\Column(type="string", unique=true)
+     */
+    private $slug;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(type="string")
      */
     private $icon;
@@ -117,6 +124,37 @@ class Category
         $this->icon = $icon;
     }
 
+    /**
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEntry()
+    {
+        return $this->entry;
+    }
+
+    /**
+     * @param string $entry
+     */
+    public function setEntry($entry)
+    {
+        $this->entry = $entry;
+    }
 
 }
 
