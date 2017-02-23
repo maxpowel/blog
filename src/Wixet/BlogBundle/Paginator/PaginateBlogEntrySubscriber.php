@@ -3,7 +3,9 @@
 namespace Wixet\BlogBundle\Paginator;
 
 use Doctrine\ORM\Query;
+use Doctrine\ORM\Tools\Pagination\CountWalker;
 use FOS\CommentBundle\Model\ThreadManager;
+use Knp\Component\Pager\Event\Subscriber\Paginate\Doctrine\ORM\QuerySubscriber;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Knp\Component\Pager\Event\ItemsEvent;
 
@@ -26,8 +28,14 @@ class PaginateBlogEntrySubscriber implements EventSubscriberInterface
              * @var $query Query
              */
             $query = $event->target;
+
+
             $query->setMaxResults($event->getLimit());
             $query->setFirstResult($event->getOffset());
+            $countDql = preg_replace('/SELECT ([A-Za-z]*) FROM/i', 'SELECT count(${1}.id) FROM',$query->getDQL());
+            $countQuery = $query->getEntityManager()->createQuery($countDql);
+            $countQuery->setParameters($query->getParameters());
+            $event->count = $countQuery->getSingleScalarResult();
             $items = $query->getResult();
             foreach($items as $element) {
                 /**

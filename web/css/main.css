@@ -1363,6 +1363,27 @@ section.news-letter-area {
     width: 170px;
 }
 
+.pager-selected {
+    background: #ffffff none repeat scroll 0 0;
+    border: 1px solid #000000;
+    color: #000000 !important;
+    display: inline-block;
+    padding: 5px 15px 5px 15px;
+}
+
+.pager-btn {
+    background: #000000 none repeat scroll 0 0;
+    border: 1px solid #000000;
+    color: #ffffff !important;
+    display: inline-block;
+    padding: 5px 15px 5px 15px;
+}
+
+.pager-btn:hover {
+    background: #ffffff none repeat scroll 0 0;
+    color: #000000 !important;
+}
+
 .blog-btn:hover {
     background: #000000 none repeat scroll 0 0;
     color: #ffffff !important;

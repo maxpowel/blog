@@ -104,7 +104,9 @@ fos_user:
         address: "%mailer_address%"
         sender_name: "%mailer_name%"
 
-
+knp_paginator:
+    template:
+        pagination: WixetBlogBundle:Pagination:sliding.html.twig
 
 sonata_block:
     default_contexts: [sonata_page_bundle]
@@ -141,12 +143,12 @@ easy_admin:
         Tag:
           class: Wixet\BlogBundle\Entity\Tag
           form:
-               fields: ['name', 'locale']
+               fields: ['name', 'locale', 'slug']
 
         Category:
           class: Wixet\BlogBundle\Entity\Category
           form:
-               fields: ['name', 'locale', 'icon']
+               fields: ['name', 'slug', 'locale', 'icon']
         User:
           class: Wixet\BlogBundle\Entity\User
           form:
