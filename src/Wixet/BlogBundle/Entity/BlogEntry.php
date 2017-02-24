@@ -50,7 +50,7 @@ class BlogEntry implements CommentableEntityInterface
     private $body;
 
     /**
-     * @var string
+     * @var Locale
      * @ORM\ManyToOne(targetEntity="Locale")
      */
     private $locale;
@@ -173,22 +173,6 @@ class BlogEntry implements CommentableEntityInterface
     }
 
     /**
-     * @return mixed
-     */
-    public function getTranslations()
-    {
-        return $this->translations;
-    }
-
-    /**
-     * @param mixed $translations
-     */
-    public function setTranslations($translations)
-    {
-        $this->translations = $translations;
-    }
-
-    /**
      * @return string
      */
     public function getBody()
@@ -205,7 +189,7 @@ class BlogEntry implements CommentableEntityInterface
     }
 
     /**
-     * @return string
+     * @return Locale
      */
     public function getLocale()
     {
@@ -213,7 +197,7 @@ class BlogEntry implements CommentableEntityInterface
     }
 
     /**
-     * @param string $locale
+     * @param Locale $locale
      */
     public function setLocale($locale)
     {

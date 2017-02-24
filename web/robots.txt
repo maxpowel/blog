@@ -1,5 +1,17 @@
 # www.robotstxt.org/
 # www.google.com/support/webmasters/bin/answer.py?hl=en&answer=156449
 
+Sitemap: http://www.alvarogarciagomez.es/sitemap.xml
 User-agent: *
-Disallow:
+Disallow: /*/logout
+Disallow: /logout
+Disallow: /*/register
+Disallow: /register
+Disallow: /*/register/check-email
+Disallow: /register/check-email
+Disallow: /*/resetting
+Disallow: /resetting
+Disallow: /*/profile
+Disallow: /profile
+Disallow: /api/*
+Disallow: /*/api

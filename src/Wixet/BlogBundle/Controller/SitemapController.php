@@ -4,6 +4,7 @@ namespace Wixet\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Wixet\BlogBundle\Entity\BlogEntry;
 
 class SitemapController extends Controller
 {
@@ -27,6 +28,20 @@ class SitemapController extends Controller
             'priority' => '1.0'
         );
 
+        $query = $em->createQuery("SELECT b FROM WixetBlogBundle:BlogEntry b JOIN b.locale l JOIN b.category c WHERE b.public=true");
+        foreach($query->getResult() as $entry){
+            /**
+             * @var $entry BlogEntry
+             */
+            $locale = substr($entry->getLocale()->getLocale(), 0, 2);
+            $urls[] = array(
+                'loc' => $this->get('router')->generate($locale.'__RG__wixet_blog_entry_entry',
+                    array('slug' => $entry->getSlug(), 'category' => $entry->getCategory())
+                ),
+                'changefreq' => 'monthly',
+                'priority' => '0.5'
+            );
+        }
 
         return $this->render('WixetBlogBundle:Sitemap:sitemap.xml.twig', array(
             'urls'     => $urls,
