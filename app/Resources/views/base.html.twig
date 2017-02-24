@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% trans %}Bienvenido{% endtrans %}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
@@ -52,7 +52,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>JOIN OUR NEWSLETTER</h2>
+                        <!-- <h2>JOIN OUR NEWSLETTER</h2>
                         <p>Subscribe to our newsletter to receive news, updates and the latest projects we are working on.</p>
                         <div class="newslatter-input">
                             <form action="https://formspree.io/crazycafe.net@email.com" method="POST">
@@ -60,13 +60,15 @@
                                 <input type="submit" value="Join Now">
                             </form>
                         </div>
-                        <br>
+                        -->
+                        {% trans %}Ésta es mi web personal. Está construida con Symfony así que es en sí un proyecto más ¡Cuidado con los bugs!. Todo lo que encuentres está protegido bajo la licencia by-nd{% endtrans %}
+                        <br><br>
+                        <img src="http://es.creativecommons.org/blog/wp-content/uploads/2013/04/by-nd_petit.png">
+                        <br><br>
                         <div class="footer-social-links">
-                            <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-dribbble"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-behance"></i></a>
+                            <a href="https://github.com/maxpowel" target="_blank"><i class="fa fa-github"></i></a>
+                            <a href="https://www.facebook.com/alvaro.maxpowel" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="https://twitter.com/maxpowel" target="_blank"><i class="fa fa-twitter"></i></a>
                         </div>
                     </div>
                 </div>

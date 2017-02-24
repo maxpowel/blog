@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}{% trans with {'%tag%': tag.name} %}Entradas relacionadas con %tag%{% endtrans %}{% endblock %}
 {% block body %}
 
     <div class="row">

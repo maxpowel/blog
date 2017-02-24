@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}{% trans with {'%category%': category.name} %}Entradas sobre %category%{% endtrans %}{% endblock %}
 {% block body %}
 
     <div class="row">
         <div class="col-md-12">
             <br>
-            <h1>Entradas sobre {{ category.name }}</h1>
+            <h1>{% trans with {'%category%': category.name} %}Entradas sobre %category%{% endtrans %}</h1>
         </div>
     </div>
     {% include 'WixetBlogBundle:Default:blogEntryList.html.twig' %}

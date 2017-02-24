@@ -1,9 +1,9 @@
 <div class="single-blog">
-    <h2>Category</h2>
+    <h2>{% trans %}Categorías{% endtrans %}</h2>
     <div class="category-list">
         <ul>
             {% for category in categories %}
-            <li><a href="{{ url('es__RG__wixet_blog_default_categorylist', {'slug': category.slug}) }}"><i class="fa fa-angle-right"></i>{{ category.name }}<span>({{ category.total }})</span></a></li>
+            <li><a href="{{ url('wixet_blog_default_categorylist', {'slug': category.slug}) }}"><i class="fa fa-angle-right"></i>{{ category.name }}<span>({{ category.total }})</span></a></li>
             {% endfor %}
         </ul>
     </div>

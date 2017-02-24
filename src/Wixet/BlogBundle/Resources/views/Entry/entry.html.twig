@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ entry.title }}{% endblock %}
 {% block body %}
 
 <div class="row">
@@ -22,7 +23,7 @@
                         <h3>{{ entry.title }}</h3>
                         <div class="coments-info">
                             {% set count = thread.numComments %}
-                            <p><span><i class="fa fa-user" aria-hidden="true"></i>by Admin</span><span><i class="fa fa-comments" aria-hidden="true"></i>{% transchoice count with {'%count%': count} from "FOSCommentBundle" %}fos_comment_thread_comment_count{% endtranschoice %}</span>{% if entry.category.name %}<span><i class="fa {{ entry.category.icon }}" aria-hidden="true"></i>{{ entry.category.name }}</span>{% endif %} </p>
+                            <p><span><i class="fa fa-user" aria-hidden="true"></i>{% trans %}por{% endtrans %} {{ entry.author.name }}</span><span><i class="fa fa-comments" aria-hidden="true"></i>{% transchoice count with {'%count%': count} from "FOSCommentBundle" %}fos_comment_thread_comment_count{% endtranschoice %}</span>{% if entry.category.name %}<span><i class="fa {{ entry.category.icon }}" aria-hidden="true"></i><a href="{{ url("wixet_blog_default_categorylist", {'slug': entry.category.slug}) }}">{{ entry.category.name }}</a></span>{% endif %} </p>
                         </div>
                         <div class="portfolio-details-text-left">
                             {{ entry.body | raw }}
@@ -43,7 +44,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="tag-area-social-icons">
-                                <h4>Share:</h4>
+                                <h4>{% trans %}Compartir{% endtrans %}:</h4>
                                 <ul>
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>

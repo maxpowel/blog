@@ -3,7 +3,7 @@
     <div class="archive-list">
         <ul>
             {% for tag in tags %}
-                <li><a href="#">{{ tag.name }}</a></li>
+                <li><a href="{{ url('wixet_blog_default_taglist', {'slug': tag.slug}) }}">{{ tag.name }}</a></li>
             {% endfor %}
         </ul>
     </div>
