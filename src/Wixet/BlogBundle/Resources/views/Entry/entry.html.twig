@@ -32,7 +32,7 @@
                 </div>
                 <div class="tag-area">
                     <div class="row">
-                        <div class="col-md-9">
+                        <div class="col-md-7">
                             <div class="tag-area-tags">
                                 <h4>Tags:</h4>
                                 <ul>
@@ -42,14 +42,16 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <div class="tag-area-social-icons">
                                 <h4>{% trans %}Compartir{% endtrans %}:</h4>
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                    <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ url('wixet_blog_entry_entry', {'category': entry.category.slug, 'slug': entry.slug }) }}"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a target="_blank" href="https://twitter.com/home?status={{ entry.title }} {{ url('wixet_blog_entry_entry', {'category': entry.category.slug, 'slug': entry.slug }) }}"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a target="_blank" href="https://plus.google.com/share?url={{ url('wixet_blog_entry_entry', {'category': entry.category.slug, 'slug': entry.slug }) }}"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a target="_blank" href="http://www.meneame.net/submit.php?url={{ url('wixet_blog_entry_entry', {'category': entry.category.slug, 'slug': entry.slug }) }}"><img style="height: 15px" src="/bundles/wixetblog/img/meneame.svg"></a></li>
+                                    <li><a href="whatsapp://send?text={{ entry.title }} {{ url('wixet_blog_entry_entry', {'category': entry.category.slug, 'slug': entry.slug }) }}" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a></li>
+
                                 </ul>
                             </div>
                         </div>
