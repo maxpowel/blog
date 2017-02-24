@@ -40,7 +40,7 @@
         "friendsofsymfony/comment-bundle": "^2.0",
         "jms/translation-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "^2.0",
-        "maxpowel/wixet-recaptcha-bundle": "^1.0"
+        "maxpowel/wixet-recaptcha-bundle": "^1.1"
 
     },
     "config": {

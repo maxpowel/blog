@@ -1,12 +1,5 @@
-wixet_blog:
-    resource: "@WixetBlogBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-
 
 fos_comment_api:
     type: rest
@@ -31,3 +24,8 @@ web_sitemap:
 web_robots:
     path:  /robots.{_format}
     defaults: { _controller: WixetBlogBundle:Sitemap:robots, _format: txt }
+
+wixet_blog:
+    resource: "@WixetBlogBundle/Controller/"
+    type:     annotation
+    prefix:   /
