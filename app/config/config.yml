@@ -220,6 +220,7 @@ liip_imagine:
     filter_sets:
         cache: ~
         blog_entry_title:
-            quality: 75
+            jpeg_quality: 75
+            png_compression_level: 9
             filters:
                 thumbnail: { size: [771, 486], mode: outbound }
