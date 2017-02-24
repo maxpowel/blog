@@ -27,3 +27,7 @@ elfinder:
 web_sitemap:
     path:  /sitemap.{_format}
     defaults: { _controller: WixetBlogBundle:Sitemap:sitemap, _format: xml }
+
+web_robots:
+    path:  /robots.{_format}
+    defaults: { _controller: WixetBlogBundle:Sitemap:robots, _format: txt }

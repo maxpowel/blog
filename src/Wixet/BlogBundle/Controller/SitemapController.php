@@ -5,6 +5,7 @@ namespace Wixet\BlogBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Wixet\BlogBundle\Entity\BlogEntry;
+use Wixet\BlogBundle\Entity\Category;
 
 class SitemapController extends Controller
 {
@@ -33,9 +34,10 @@ class SitemapController extends Controller
             /**
              * @var $entry BlogEntry
              */
+            $router = $this->get('router');
             $locale = substr($entry->getLocale()->getLocale(), 0, 2);
             $urls[] = array(
-                'loc' => $this->get('router')->generate($locale.'__RG__wixet_blog_entry_entry',
+                'loc' => $router->generate($locale.'__RG__wixet_blog_entry_entry',
                     array('slug' => $entry->getSlug(), 'category' => $entry->getCategory())
                 ),
                 'changefreq' => 'monthly',
@@ -46,6 +48,44 @@ class SitemapController extends Controller
         return $this->render('WixetBlogBundle:Sitemap:sitemap.xml.twig', array(
             'urls'     => $urls,
             'hostname' => $hostname
+        ));
+    }
+
+    public function robotsAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $disallow = array(
+            "/*/logout",
+            "/logout",
+            "/*/register",
+            "/register",
+            "/*/register/check-email",
+            "/register/check-email",
+            "/*/resetting",
+            "/resetting",
+            "/*/profile",
+            "/profile",
+            "/api/*",
+            "/*/api",
+            "/tag/*",
+            "/*/tag/*",
+        );
+        $router = $this->get('router');
+        foreach ($em->getRepository("WixetBlogBundle:Category")->findAll() as $category){
+            /**
+             * @var $category Category
+             */
+            if($category->getSlug() != "") {
+                //Ensure that the slug is not empty!!
+                $disallow[] = $category->getSlug();
+            }
+        }
+        $hostname = $request->getSchemeAndHttpHost();
+
+        return $this->render('WixetBlogBundle:Sitemap:robots.txt.twig', array(
+            'hostname' => $hostname,
+            'disallow' => $disallow
         ));
     }
 }
