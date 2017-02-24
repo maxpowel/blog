@@ -44,7 +44,7 @@ class CategoriesBlockService extends AbstractBlockService
         // merge settings
         $settings = $blockContext->getSettings();
 
-        $query = $this->em->createQuery("SELECT count(c.id) as total, c.name FROM WixetBlogBundle:Category c JOIN c.locale l JOIN c.entry e WHERE l.locale LIKE :locale GROUP BY c.id");
+        $query = $this->em->createQuery("SELECT count(c.id) as total, c.name, c.slug FROM WixetBlogBundle:Category c JOIN c.locale l JOIN c.entry e WHERE l.locale LIKE :locale GROUP BY c.id");
         $query->setParameter("locale", $this->requestStack->getMasterRequest()->getLocale()."%");
         $categories = $query->getResult();
 

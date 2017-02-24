@@ -2,9 +2,11 @@
 
 namespace Wixet\BlogBundle\Controller;
 
+use Doctrine\ORM\Query;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Wixet\BlogBundle\Entity\Category;
 use Wixet\BlogBundle\Service\BlogEntryService;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -17,6 +19,70 @@ use Wixet\BlogBundle\Repository\BlogEntryRepository;
 
 class DefaultController extends Controller
 {
+    /**
+     * @Route("/tag/{slug}")
+     * @Template
+     * @ParamConverter("tag", options={"mapping": {"slug": "slug"}})
+     * 
+     * @param Tag $tag
+     * @param Request $request
+     * @return array
+     */
+    public function tagListAction(Tag $tag, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        /**
+         * @var $query Query
+         */
+        $query = $em->createQuery("SELECT e FROM WixetBlogBundle:BlogEntry e JOIN e.tags t WHERE t.slug = :slug");
+        $query->setParameter("slug", $tag->getSlug());
+
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query,
+            $request->get("page", 1),
+            $request->get("size", 10),
+            array("comment_info" => true)
+        );
+
+        return array("blogEntryPagination" => $pagination, "tag" => $tag);
+    }
+
+    /**
+     * @Route("/{slug}")
+     * @Template
+     * @ParamConverter("category", options={"mapping": {"slug": "slug"}})
+     *
+     * @param Category $category
+     * @param Request $request
+     * @return array
+     */
+    public function categoryListAction(Category $category, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        /**
+         * @var $query Query
+         */
+        $query = $em->createQuery("SELECT e FROM WixetBlogBundle:BlogEntry e JOIN e.category c WHERE c.slug = :slug");
+        $query->setParameter("slug", $category->getSlug());
+
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query,
+            $request->get("page", 1),
+            $request->get("size", 10),
+            array("comment_info" => true)
+        );
+
+        return array("blogEntryPagination" => $pagination, "category" => $category);
+    }
+
     /**
      * @Route("/")
      * @Template
@@ -44,50 +110,5 @@ class DefaultController extends Controller
         );
 
         return array("blogEntryPagination" => $pagination);
-    }
-
-    /**
-     * @Route("/tag/{slug}")
-     * @Template
-     * @ParamConverter("tag", options={"mapping": {"slug": "slug"}})
-     * 
-     * @param Tag $tag
-     * @param Request $request
-     * @return array
-     */
-    public function tagListAction(Tag $tag, Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-        /**
-         * @var $repo BlogEntryRepository
-         */
-        $repo = $em->getRepository("WixetBlogBundle:BlogEntry");
-        $entries = $repo->findMostRecent($request->getLocale(), null, $tag);
-
-
-        return array("entries" => $this->buildEntryList($entries));
-    }
-
-    private function buildEntryList($inputEntries) {
-        $threadService = $this->get('fos_comment.manager.thread');
-        $outputEntries = array();
-        foreach($inputEntries as $entry){
-            /**
-             * @var $entry BlogEntry
-             * @var $thread CommentThread
-             */
-            $thread = $threadService->findThreadById($entry->getSlug());
-            if (null === $thread) {
-                $numComments = 0;
-            } else {
-                $numComments = $thread->getNumComments();
-            }
-            $outputEntries[] = array(
-                "entry" => $entry,
-                "numComments" => $numComments
-            );
-        }
-        return $outputEntries;
-
     }
 }

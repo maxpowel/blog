@@ -70,6 +70,7 @@ class SitemapController extends Controller
             "/*/api",
             "/tag/*",
             "/*/tag/*",
+            "/elfinder/*"
         );
         $router = $this->get('router');
         foreach ($em->getRepository("WixetBlogBundle:Category")->findAll() as $category){
