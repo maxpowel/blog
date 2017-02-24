@@ -23,3 +23,7 @@ easy_admin_bundle:
 elfinder:
      resource: "@FMElfinderBundle/Resources/config/routing.yml"
      options: { i18n: false }
+
+web_sitemap:
+    path:  /sitemap.{_format}
+    defaults: { _controller: WixetBlogBundle:Sitemap:sitemap, _format: xml }

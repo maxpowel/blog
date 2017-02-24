@@ -39,7 +39,7 @@ class DefaultController extends Controller
         $pagination = $paginator->paginate(
             $repo->findMostRecentQuery($request->getLocale()),
             $request->get("page", 1),
-            $request->get("size", 1),
+            $request->get("size", 10),
             array("comment_info" => true)
         );
 
