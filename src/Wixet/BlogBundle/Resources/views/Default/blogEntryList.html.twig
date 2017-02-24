@@ -5,7 +5,7 @@
                 {% for entry in blogEntryPagination.items %}
                     <div class="single-blog">
                         <div class="single-blog-img">
-                            <a href="{{ url('wixet_blog_entry_entry', {'category': entry.category.slug, 'slug': entry.slug }) }}"><img src="{{ entry.image }}" alt="{{ entry.title }}"></a>
+                            <a href="{{ url('wixet_blog_entry_entry', {'category': entry.category.slug, 'slug': entry.slug }) }}"><img src="{{ entry.image | imagine_filter('blog_entry_title') }}" alt="{{ entry.title }}"></a>
                         </div>
                         <div class="single-blog-details">
                             <h4>{{ entry.createdAt | ldate }}</h4>

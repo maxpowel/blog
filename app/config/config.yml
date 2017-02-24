@@ -211,3 +211,15 @@ fm_elfinder:
 wixet_recaptcha:
      site_key: "%recaptcha_site_key%"
      secret: "%recaptcha_secret%"
+
+liip_imagine:
+    resolvers:
+        default:
+            web_path: ~
+
+    filter_sets:
+        cache: ~
+        blog_entry_title:
+            quality: 75
+            filters:
+                thumbnail: { size: [771, 486], mode: outbound }

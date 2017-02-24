@@ -25,6 +25,9 @@ web_robots:
     path:  /robots.{_format}
     defaults: { _controller: WixetBlogBundle:Sitemap:robots, _format: txt }
 
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
 wixet_blog:
     resource: "@WixetBlogBundle/Controller/"
     type:     annotation
