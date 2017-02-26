@@ -3,7 +3,7 @@
     <div class="category-list">
         <ul>
             {% for category in categories %}
-            <li><a href="{{ url('wixet_blog_default_categorylist', {'slug': category.slug}) }}"><i class="fa fa-angle-right"></i>{{ category.name }}<span>({{ category.total }})</span></a></li>
+            <li><a href="{{ path('wixet_blog_default_categorylist', {'slug': category.slug}) }}"><i class="fa fa-angle-right"></i>{{ category.name }}<span>({{ category.total }})</span></a></li>
             {% endfor %}
         </ul>
     </div>

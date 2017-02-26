@@ -5,17 +5,17 @@
                 {% for entry in blogEntryPagination.items %}
                     <div class="single-blog">
                         <div class="single-blog-img">
-                            <a href="{{ url('wixet_blog_entry_entry', {'category': entry.category.slug, 'slug': entry.slug }) }}"><img src="{{ entry.image | imagine_filter('blog_entry_title') }}" alt="{{ entry.title }}"></a>
+                            <a href="{{ path('wixet_blog_entry_entry', {'category': entry.category.slug, 'slug': entry.slug }) }}"><img src="{{ entry.image | imagine_filter('blog_entry_title') }}" alt="{{ entry.title }}"></a>
                         </div>
                         <div class="single-blog-details">
                             <h4>{{ entry.createdAt | ldate }}</h4>
                             <h3>{{ entry.title }}</h3>
                             <div class="coments-info">
                                 {% set count = entry.numComments %}
-                                <p><span><i class="fa fa-user" aria-hidden="true"></i>{% trans %}por{% endtrans %} {{ entry.author.name }}</span><span><i class="fa fa-comments" aria-hidden="true"></i>{% transchoice count with {'%count%': count} from "FOSCommentBundle" %}fos_comment_thread_comment_count{% endtranschoice %}</span>{% if entry.category.name %}<span><i class="fa {{ entry.category.icon }}" aria-hidden="true"></i><a href="{{ url("wixet_blog_default_categorylist", {'slug': entry.category.slug}) }}">{{ entry.category.name }}</a></span>{% endif %} </p>
+                                <p><span><i class="fa fa-user" aria-hidden="true"></i>{% trans %}por{% endtrans %} {{ entry.author.name }}</span><span><i class="fa fa-comments" aria-hidden="true"></i>{% transchoice count with {'%count%': count} from "FOSCommentBundle" %}fos_comment_thread_comment_count{% endtranschoice %}</span>{% if entry.category.name %}<span><i class="fa {{ entry.category.icon }}" aria-hidden="true"></i><a href="{{ path("wixet_blog_default_categorylist", {'slug': entry.category.slug}) }}">{{ entry.category.name }}</a></span>{% endif %} </p>
                             </div>
                             <p>{{ entry.bodyPreview | raw }}</p>
-                            <a href="{{ url('wixet_blog_entry_entry', {'category': entry.category.slug, 'slug': entry.slug }) }}" class="blog-btn">{% trans %}Leer más{% endtrans %}</a>
+                            <a href="{{ path('wixet_blog_entry_entry', {'category': entry.category.slug, 'slug': entry.slug }) }}" class="blog-btn">{% trans %}Leer más{% endtrans %}</a>
                         </div>
                     </div>
                 {% endfor %}
