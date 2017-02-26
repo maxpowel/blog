@@ -32,17 +32,16 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         /**
-         * @var $query Query
+         * @var $repo BlogEntryRepository
          */
-        $query = $em->createQuery("SELECT e FROM WixetBlogBundle:BlogEntry e JOIN e.tags t WHERE t.slug = :slug");
-        $query->setParameter("slug", $tag->getSlug());
+        $repo = $em->getRepository("WixetBlogBundle:BlogEntry");
 
         /**
          * @var $paginator \Knp\Component\Pager\Paginator
          */
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-            $query,
+            $repo->findMostRecentQuery($request->getLocale(), null, $tag),
             $request->get("page", 1),
             $request->get("size", 10),
             array("comment_info" => true)
@@ -64,17 +63,16 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         /**
-         * @var $query Query
+         * @var $repo BlogEntryRepository
          */
-        $query = $em->createQuery("SELECT e FROM WixetBlogBundle:BlogEntry e JOIN e.category c WHERE c.slug = :slug");
-        $query->setParameter("slug", $category->getSlug());
+        $repo = $em->getRepository("WixetBlogBundle:BlogEntry");
 
         /**
          * @var $paginator \Knp\Component\Pager\Paginator
          */
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-            $query,
+            $repo->findMostRecentQuery($request->getLocale(), $category),
             $request->get("page", 1),
             $request->get("size", 10),
             array("comment_info" => true)
