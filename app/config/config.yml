@@ -224,3 +224,27 @@ liip_imagine:
             png_compression_level: 9
             filters:
                 thumbnail: { size: [771, 486], mode: outbound }
+
+hwi_oauth:
+    connect:
+        account_connector: my.oauth_aware.user_provider.service
+    firewall_names: [main]
+    fosub:
+      username_iterations: 30
+      properties:
+          facebook:    facebook_id
+          google: google_id
+    resource_owners:
+      google:
+          type:                google
+          client_id:           "%google_client_id%"
+          client_secret:       "%google_secret%"
+          scope:               "email profile"
+      facebook:
+          type:                facebook
+          client_id:           "%facebook_client_id%"
+          client_secret:       "%facebook_secret%"
+          scope:               "email public_profile"
+          options:
+                display: popup #dialog is optimized for popup window
+                auth_type: rerequest # Re-asking for Declined Permissions

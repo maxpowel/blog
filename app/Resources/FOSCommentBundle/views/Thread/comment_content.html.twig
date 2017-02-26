@@ -2,7 +2,7 @@
 
     <div class="single-comment">
         <div class="comentor-img">
-            <img src="images/commentor-img1.jpg" alt="">
+            <img src="{{ comment.authorImage }}" alt="{{ comment.authorName }}">
         </div>
         <div id="fos_comment_{{ comment.id }}" class="commentor-comment fos_comment_comment_show fos_comment_comment_depth_{{ depth }}" {% if parent is defined and parent is not null %}data-parent="{{ parent.id }}"{% endif %}>
 

@@ -24,3 +24,8 @@ parameters:
     recaptcha_site_key: "Change me"
     recaptcha_secret: "Me too"
     locale: es
+
+    google_client_id: google_id
+    google_secret: google_secret
+    facebook_client_id: facebook_id
+    facebook_secret: facebook_secret

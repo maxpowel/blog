@@ -2,7 +2,6 @@
 
 {% block title %}{{ entry.title }}{% endblock %}
 {% block body %}
-
 <div class="row">
     <div class="col-md-12">
         <br>
@@ -58,6 +57,9 @@
                     </div>
                 </div>
                 <div class="blog-comment-area">
+                    {% if not app.user %}
+                    Puedes comentar como anónimo o identificarte con <a href="{{ url('hwi_oauth_service_redirect',{'service':'google'}) }}">google <i class="fa fa-google-plus"></i></a> o <a href="{{ url('hwi_oauth_service_redirect',{'service':'facebook'}) }}">facebook <i class="fa fa-facebook"></i></a>
+                    {% endif %}
                     <div id="fos_comment_thread" data-thread="{{ thread.id }}">
 
                         {% include 'FOSCommentBundle:Thread:comments.html.twig' with {

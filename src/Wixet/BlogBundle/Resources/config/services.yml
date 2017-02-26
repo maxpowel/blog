@@ -43,3 +43,15 @@ services:
               - [setThreadManager, ['@fos_comment.manager.thread']]
           tags:
               - { name: knp_paginator.subscriber }
+
+
+#  wixet.menu_builder:
+#        class: AWixet\BlogBundle\Menu\MainBuilder
+#        arguments: ["@knp_menu.factory"]
+#
+#  wixet.top_menu:
+#        class: Knp\Menu\MenuItem # the service definition requires setting the class
+#        factory: ["@app.menu_builder", topMenu]
+#        arguments: ["@request_stack"]
+#        tags:
+#            - { name: knp_menu.menu, alias: main } # The a

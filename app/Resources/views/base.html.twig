@@ -36,7 +36,9 @@
                     <div class="col-md-9 col-sm-10 col-xs-6 menu_col">
                         <div class="mainmenu">
                             <div class="menu-menu-1-container">
-                                {{ knp_menu_render('WixetBlogBundle:MainBuilder:topMenu') }}
+                                {{ knp_menu_render(knp_menu_get('WixetBlogBundle:MainBuilder:topMenu',[], {'user': app.user}), {'template':'knp_menu.html.twig'
+                                    ,'allow_‌​safe_labels': true}) }}
+
                             </div>
                         </div>
                     </div>

@@ -17,6 +17,13 @@ class MainBuilder implements ContainerAwareInterface
 
         $menu->addChild('Inicio', array('route' => 'wixet_blog_default_index'));
 
+
+        if($options["user"]){
+            $menu->addChild('', array('route' => 'wixet_blog_default_index', 'extras' => array(
+                'image' => $options["user"]->getProfileImageUrl()
+            )));
+            $menu['']->addChild('Salir', array('route' => 'fos_user_security_logout'));
+        }
         // access services from the container!
         //$em = $this->container->get('doctrine')->getManager();
         //$locale = $this->container->get('request_stack')->getMasterRequest()->getLocale();
@@ -38,4 +45,5 @@ class MainBuilder implements ContainerAwareInterface
 
         return $menu;
     }
+
 }

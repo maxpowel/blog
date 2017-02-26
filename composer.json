@@ -41,7 +41,8 @@
         "jms/translation-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "^2.0",
         "maxpowel/wixet-recaptcha-bundle": "^1.1",
-        "liip/imagine-bundle": "^1.7"
+        "liip/imagine-bundle": "^1.7",
+        "yzalis/identicon": "^1.1"
 
     },
     "config": {
